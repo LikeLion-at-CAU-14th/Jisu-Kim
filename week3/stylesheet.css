@@ -136,3 +136,14 @@ body {
     margin: 25px;
     color: #444;
 }
+
+footer {
+    text-align: center;
+    margin-top: 80px;
+}
+
+footer a {
+    color: #444;
+    font-size: 18px;
+    margin: 0 10px;
+}
