@@ -22,17 +22,16 @@
 
 .line2{
     width:466px;
-    height:0px;
     margin: 0 auto;
     margin-top:30px;
     
 }
 
-.label{
+.input__label{
     margin-bottom:59.05px;
 }
 
-.blueline,.line{
+.input__blueline,.input__line{
     border-width: 1px;
 }
 
@@ -49,14 +48,14 @@
     gap:5px;
 }
 
-.circle{
+.gender__circle{
     width: 20px;
     height: 19.953596115112305px;
     border-width: 1px;
     border-radius:50px;
 }
 
-.agree-check{
+.agree{
     width:454px;
     height:21.0556640625px;
     display:flex;
@@ -66,7 +65,7 @@
     gap:15px;
 }
 
-.checkbox{
+.agree__checkbox{
     width: 20px;
     height: 20px;
     border-radius: 3px;
