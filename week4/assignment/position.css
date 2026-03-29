@@ -9,7 +9,7 @@
 .header{
     margin: 77px auto 100px;
     display:flex;
-    justify-content: center;
+    justify-content:center;
 }
 
 .logo{
@@ -54,7 +54,7 @@
 .agree{
     width:454px;
     display:grid;
-    grid-template-columns: 21px 1fr;
+    grid-template-columns: 20px 1fr;
     margin:50px auto 30px;
     column-gap:15px;
 }
@@ -70,5 +70,7 @@
     height: 75px;
     border-radius: 10px;
     margin: 31px auto 0;
-    display:block;
+    display:flex;
+    justify-content: center;
+    align-items:center;
 }
