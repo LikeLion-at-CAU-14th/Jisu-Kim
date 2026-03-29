@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing:border-box;
 }
 
 :root{
@@ -9,8 +10,6 @@
 }
 
 body {
-  width: 1920px;
-  height: 1080px;
   background-color: var(--background);
 }
 
@@ -20,12 +19,6 @@ body {
     border-radius: 20px;
     border-width: 1px;
     padding: 20px;
-}
-
-.header img{
-    width: 58px;
-    height: 29px;
-    margin-right:15px;
 }
 
 @font-face{
