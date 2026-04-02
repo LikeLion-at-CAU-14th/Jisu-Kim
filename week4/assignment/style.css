@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+:root{
+    --likelion:#FF7710;
+    --background:#FFFFFF;
+}
+
+body {
+  background-color: var(--background);
+}
+
+.container{
+    border: 1px solid var(--likelion);
+    box-shadow: 7px 7px 39px 0px #FF771040;
+    border-radius: 20px;
+    border-width: 1px;
+    padding: 20px;
+}
+
+@font-face{
+    font-family:'Pretendard-Bold';
+    src: url('/assets/Pretendard-Bold.otf');
+}
+
+@font-face{
+    font-family:'Noto Sans CJK KR-Regular';
+    src:url('/assets/본고딕_Noto_Sans_Kr_Regular.otf');
+}
+
+.header__title{
+    color: var(--likelion);
+    font-family: 'Pretendard-Bold';
+    font-size: 25px;
+    margin-left:20px;
+}
+
+.input__blueline{
+    border: 1px solid #0068FF;
+}
+
+.input__line{
+    border: 1px solid #cfcfcf;
+}
+
+.line2{
+    border: 1px solid #E6E6E6;
+}
+
+.input__label{
+    color:#797979;
+    font-family: 'Noto Sans CJK KR-Regular';
+    font-size: 16px;
+}
+
+.gender__circle{
+    background-color: #EBEBEB;
+    border: 1px solid #D2D2D2;
+}
+
+.gender-choice{
+    font-family: 'Noto Sans CJK KR-Regular';
+    font-size: 16px;
+}
+
+.agree{
+    font-family: 'Noto Sans CJK KR-Regular';
+    font-size: 14px;
+    color: #000000;
+}
+
+.agree__checkbox{
+    background: var(--background);
+    border: 1px solid #C4C4C4;
+}
+
+.join{
+    border: 1px solid var(--likelion);
+    color: var(--likelion);
+    font-family: 'Noto Sans CJK KR-Regular';
+    font-size: 18px;
+    text-align: center;
+    background-color:var(--background);
+}

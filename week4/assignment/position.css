@@ -1,0 +1,76 @@
+.container{
+    width: 670px;
+    height: 960px;
+    position:absolute;
+    top: 60px;
+    left: 625px;
+}
+
+.header{
+    margin: 77px auto 100px;
+    display:flex;
+    justify-content:center;
+}
+
+.logo{
+    width: 58px;
+    height: 29px;
+    margin-right:15px;
+}
+
+.input{
+    width:466px;
+    height:80px;
+    margin: 0 auto 21px;
+    display:grid;
+    grid-template-rows:auto 1px;
+    row-gap:10px;
+}
+
+.line2{
+    width:466px;
+    margin: 0 auto;
+}
+
+.gender{
+    display:flex;
+    justify-content: center;
+    gap:30px;
+    margin-top:50px;
+}
+
+.gender-choice{
+    display:flex;
+    flex-direction:row;
+    gap:5px;
+}
+
+.gender__circle{
+    width: 20px;
+    height: 19.953596115112305px;
+    border-radius:50px;
+}
+
+.agree{
+    width:454px;
+    display:grid;
+    grid-template-columns: 20px 1fr;
+    margin:50px auto 30px;
+    column-gap:15px;
+}
+
+.agree__checkbox{
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+}
+
+.join{
+    width: 470px;
+    height: 75px;
+    border-radius: 10px;
+    margin: 31px auto 0;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
