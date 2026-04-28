@@ -58,10 +58,6 @@ section {
     padding: 10px 15px;
 }
 
-#input-box:focus-within {
-    background-color: #cfe7ff;
-}
-
 input {
     flex: 1;
     border: none;
@@ -82,9 +78,12 @@ button:active {
 }
 
 #input {
-    background-color: #4d81b1;
-    color: white;
-    padding: 8px 16px;
+    padding: 8px 12px;
+}
+
+#input img {
+    width: 30px;
+    height: 30px;
 }
 
 .row {
@@ -108,7 +107,6 @@ button:active {
     color: #adb5bd;
 }
 
-
 .complete-btn, .del-btn {
     width: 32px;
     height: 32px;
@@ -119,24 +117,16 @@ button:active {
 }
 
 .complete-btn {
-    background-color: #e7f5ff;
-    color: #228be6;
+    background-color: #fff5f5;
 }
 
 .del-btn {
     background-color: #fff5f5;
-    color: #fa5252;
 }
 
 .del-btn:hover {
     background-color: #fa5252;
     color: white;
-}
-
-.done-btn {
-    background-color: #dee2e6; 
-    color: #868e96; 
-
 }
 
 @media all and (max-width:970px){
@@ -148,4 +138,9 @@ button:active {
     article{
         width: 90%;
     }
+}
+
+button img {
+  width: 32px;
+  height: 32px;
 }
