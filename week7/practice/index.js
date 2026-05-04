@@ -11,18 +11,19 @@ const option = {
   MobileOS: "ETC", // OS 구분
   arrange: "A", // 정렬 기준(A=제목순 등)
   _type: "json", // 응답 데이터 타입
+  pageNo : 1,
 };
 
 // HTML에서 id="container"인 요소를 찾아 변수에 저장자
 // -> 앞으로 불러오는 사진들이 이 공간에 채워짐
-const conatiner = document.getElementById("container");
+const container = document.getElementById("container");
 
 // 사진의 순번을 매기기 위해 사용하는 숫자 변수
 let photoIndex = 1;
 
 //비동기 함수 -> API 서버에서 데이터들을 가져오는 시간이 걸리는 작업들을 순차적으로 처리
 async function getData() {
-    let count = 1;
+    option.pageNo=Math.floor(Math.random()*100)+1;
     // baseURL과 option 객체들의 값을 조합하여 최종적으로 데이터를 요청할 주소를 만듦
     const url = `${baseURL}/galleryList1?numOfRows=${option.numofRows}&MobileApp=${option.MobileApp}&MobileOS=${option.MobileOS}&arrange=${option.arrange}&_type=${option._type}&pageNo=${option.pageNo}&serviceKey=${option.serviceKey}`
 
@@ -45,11 +46,15 @@ async function getData() {
         🚩장소 : ${data.galPhotographyLocation}`;
 
         const detail = document.createElement("button");
-        detail.innerText ="상세보기";
+        detail.innerText="상세보기";
+
+        detail.addEventListener("click", ()=>{
+          location.href=`detail.html?title=${data.galTitle}&location=${data.galPhotographyLocation}&img=${data.galWebImageUrl}&date=${data.galCreatedtime}&photographer=${data.galPhotographer}&keyword=${data.galSearchKeyword}`;
+        });
 
         list.appendChild(image);
         list.appendChild(info);
         list.appendChild(detail);
-        conatiner.appendChild(list);
+        container.appendChild(list);
     });
 }

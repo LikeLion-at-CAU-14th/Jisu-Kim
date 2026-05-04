@@ -10,15 +10,15 @@ body {
   justify-content: center;
   font-family: "Gowun Dodum", sans-serif;
   padding-bottom: 5%;
-  background-color: #e2e2e2;
+  background-color: #ffdede;
 }
 
 button {
   all: unset;
   margin: 10px 0;
-  background-color: rosybrown;
+  background-color: rgb(253, 135, 190);
   color: rgb(255, 255, 255);
-  font-weight: 700;
+  font-weight: 800;
   padding: 5px;
   cursor: pointer;
   border-radius: 10px;
