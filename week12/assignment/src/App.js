@@ -1,12 +1,20 @@
 import React from 'react'
 import './App.css';
-import { Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Quiz from './pages/Quiz';
+import Result from './pages/Result';
+import styled from 'styled-components';
 
 
 const App = () => {
   return (
     <AppDom>
-      <Routes></Routes>
+      <Routes>
+        <Route path = "/" element = {<Home/>}/>
+        <Route path = "/quiz" element = {<Quiz/>}/>
+        <Route path = "/result/:score" element = {<Result/>}/>
+      </Routes>
     </AppDom>
   )
 }

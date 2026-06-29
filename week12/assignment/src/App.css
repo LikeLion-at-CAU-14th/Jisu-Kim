@@ -26,3 +26,7 @@ button {
 button:hover {
   background-color: wheat;
 }
+
+a:hover {
+  background-color: wheat;
+}
