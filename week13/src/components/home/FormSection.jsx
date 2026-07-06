@@ -26,6 +26,31 @@ const FormSection = () => {
     }
 
     const handleSubmit = () => {
+        if(formData.name===''){
+            alert("이름을 입력해주세요.");
+            return;
+        }
+
+        if (formData.email === ''){
+            alert("이메일을 입력해주세요.");
+            return;
+        }
+
+        if (!formData.email.includes('@')){
+            alert("올바른 이메일 형식으로 입력해주세요.");
+            return;
+        }
+
+        if (formData.birth === ''){
+            alert("생년월일을 선택해주세요.");
+            return;
+        }
+
+        if (formData.gender === ''){
+            alert("성별을 선택해주세요.");
+            return;
+        }
+
         dispatch({
             type:'SAVE',
             payload: formData,
