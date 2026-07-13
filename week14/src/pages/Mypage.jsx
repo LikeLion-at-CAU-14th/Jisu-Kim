@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import styled, { keyframes } from 'styled-components';
 import { getMyPage } from '../apis/user';
+import { useNavigate } from 'react-router-dom';
+import { clearTokens } from '../auth/tokenStorage';
 
 const Mypage = () => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
   const [toastMessage, setToastMessage] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect (() => {
     getMyPage()
@@ -15,10 +19,25 @@ const Mypage = () => {
     })
     .catch((error) => {
         //TODO : RefreshToken 만료 시 자동 로그아웃 후 로그인 페이지로 이동하기
+        clearTokens();
+        setToastMessage("로그인이 만료되어 자동 로그아웃 되었습니다. 다시 로그인해주세요.");
+        setLoading(false);
+
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
     })
   }, []);
 
   //TODO : 마이페이지에서 로그아웃 버튼 만들어 로그아웃 기능 구현하기
+  const logout = () => {
+    clearTokens();
+    setToastMessage("로그아웃 되었습니다.");
+
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);
+  }
 
   if (loading) return (
     <Wrapper>
@@ -42,6 +61,7 @@ const Mypage = () => {
           <strong>{data.age}</strong>
         </InfoRow>
       </InfoList>
+      <LogoutButton onClick = {logout}>로그아웃</LogoutButton>
     </Wrapper>
   )
 }
