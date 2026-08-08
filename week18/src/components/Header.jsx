@@ -5,14 +5,14 @@ import CartPage from "./CartPage";
 
 
 function Header () {
-    const cartCount = useCartStore((state) => state.cartItems.length);
+    const cartCount = useCartStore((state) => state.cartItems.reduce((total, item) => total + item.quantity, 0));
     const [isCartOpen, setIsCartOpen] = useState(false);
 
     return (
         <Wrapper>
-            <Logo> 멋사 굿즈 스토어 </Logo>
+            <Logo> 🦁멋사 굿즈 스토어🦁 </Logo>
             <CartButton onClick = {() => setIsCartOpen(true)}>
-                장바구니 <Badge>{cartCount}</Badge>
+                장바구니🛒 <Badge>{cartCount}</Badge>
             </CartButton>
 
             {isCartOpen && (

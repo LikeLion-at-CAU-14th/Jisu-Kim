@@ -1,27 +1,60 @@
 import styled from "styled-components";
-import React from 'react'
+import React, { useState } from 'react'
 import useCartStore from "../store/useCartStore";
 
 
 function CartPage () {
   const cartItems = useCartStore(((state) => state.cartItems));
   const removeFromCart = useCartStore((state)=> state.removeFromCart);
+  const plusFromCart = useCartStore((state) => state.plusFromCart);
+  const minusFromCart = useCartStore((state) => state.minusFromCart);
+  const clearCart = useCartStore((state) => state.clearCart);
+  const getTotalPrice = useCartStore((state) => state.getTotalPrice);
+
+  const [isOrderComplete, setIsOrderComplete] = useState(false);
+
+  const handleCheckout = () => {
+    clearCart();
+    setIsOrderComplete(true);
+  };
+
+  if (isOrderComplete) {
+    return (
+      <Section>
+        <SectionTitle>장바구니🛒</SectionTitle>
+        <OrderComplete>주문이 완료되었습니다.😊</OrderComplete>
+      </Section>
+    );
+  }
 
   return (
     <Section>
-      <SectionTitle>장바구니</SectionTitle>
+      <SectionTitle>장바구니🛒</SectionTitle>
       {cartItems.length === 0 ? (
         <Empty>담긴 상품이 없습니다.</Empty>
       ) : (
-        <List>
-          {cartItems.map((item, index) => (
-            <Item key = {index}>
-              <ItemName>{item.name}</ItemName>
-              <ItemPrice>{item.price.toLocaleString()}원</ItemPrice>
-              <RemoveButton onClick = { () => removeFromCart(index)}>삭제</RemoveButton>
-            </Item>
-          ))}
-        </List>
+        <>
+          <List>
+            {cartItems.map((item, index) => (
+              <Item key = {index}>
+                <ItemName>{item.name}</ItemName>
+
+                <QuantityControl>
+                  <MinusButton onClick = { () => minusFromCart(item.id)}>-</MinusButton>
+                  <span> {item.quantity}</span>
+                  <PlusButton onClick = { () => plusFromCart(item.id)}>+</PlusButton>
+                </QuantityControl>
+
+                <ItemPrice>{(item.price * item.quantity).toLocaleString()}원</ItemPrice>
+                <RemoveButton onClick = { () => removeFromCart(index)}>삭제</RemoveButton>
+              </Item>
+            ))}
+          </List>
+
+          <Total>총 금액 {getTotalPrice().toLocaleString()}원</Total>
+          <CheckoutButton onClick = {handleCheckout}>결제하기</CheckoutButton>
+        </>
+        
       )}
     </Section>
   );
@@ -75,7 +108,17 @@ const QuantityControl = styled.div`
   font-size: 13px;
 `;
 
-const QtyButton = styled.button`
+const MinusButton = styled.button`
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+`;
+
+const PlusButton = styled.button`
   width: 22px;
   height: 22px;
   border-radius: 4px;
