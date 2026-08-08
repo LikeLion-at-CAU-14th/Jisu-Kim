@@ -1,4 +1,4 @@
-<div style="text-align: center;">
+<div align="center">
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=FFB6C1&height=150&section=header&text=Jisu's%20GitHub&fontSize=42" />
 
@@ -47,7 +47,7 @@
 
 ---
 
-<div style="text-align: center;">
+<div align="center">
 
 💗 Thanks for visiting my GitHub 💗  
 
