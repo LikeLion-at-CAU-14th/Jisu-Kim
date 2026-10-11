@@ -15,7 +15,7 @@ export default function RestaurantsPage() {
                             className = "flex flex-col gap-2 rounded-2xl bg-white p-6 shadow-sm hover:shadow-md">
                             <span className = "text-4xl"> {restaurant.emoji}</span>
                             <span className = "text-lg font-bold"> {restaurant.name}</span>
-                            <span className = "text-sm text-gray-500"> {restaurant.category} {restaurant.menu}</span>
+                            <span className = "text-sm text-gray-500"> {restaurant.category} · {restaurant.menu}</span>
                         </Link>
                     </li>
                 ))}
