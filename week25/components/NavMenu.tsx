@@ -29,6 +29,15 @@ export default function NavMenu() {
       >
         소개
       </Link>
+      
+      <Link
+        href="/random"
+        className={
+            pathname === "/random"
+            ? "text-orange-500 font-bold"
+            : "text-gray-600 hover:text-orange-500"
+        }>랜덤
+       </Link>
     </nav>
   );
 }
