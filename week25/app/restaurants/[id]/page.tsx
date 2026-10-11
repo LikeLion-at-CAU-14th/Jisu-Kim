@@ -3,6 +3,14 @@ import LikeButton from "@/components/LikeButton";
 import { restaurants } from "@/data/restaurants";
 import { notFound } from "next/navigation";
 
+export const instant = false;
+
+export function generateStaticParams() {
+  return restaurants.map((restaurant) => ({
+    id: String(restaurant.id),
+  }));
+}
+
 export default async function RestaurantsDetailPage ({
     params,
 } : {
