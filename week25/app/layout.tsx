@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import  Link from "next/link";
 import "./globals.css";
 import NavMenu from "@/components/NavMenu";
+import { Suspense } from "react";
 
 export const metadata : Metadata = {
   title : "맛집 도감",
@@ -20,7 +21,9 @@ export default function RootLayout({
           <Link href="/" className="text-xl font-bold text-orange-500">
             🦁 맛집 도감
           </Link>
-          <NavMenu/>
+          <Suspense fallback = {null}>
+            <NavMenu/>
+          </Suspense> {/* 현재 경로를 읽는 NavMenu라 Suspense로 감쌌습니다. */}
         </header>
         <main className="mx-auto max-w-3xl px-6 py-10">{children}</main>
       </body>
