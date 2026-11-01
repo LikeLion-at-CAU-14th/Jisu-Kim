@@ -8,7 +8,7 @@ function App() { // 챗봇 화면 만드는 컴포넌트
   const [messages, setMessages] = useState([ // 채팅 화면에 표시할 메시지 목록 관리
     {
       role: "assistant", 
-      text: "안녕하세요! 무엇이든 물어보세요 👋", 
+      text: "무인도 안내소에 오신 걸 환영해요! 무엇을 도와드릴까요? 🌿", 
     },
   ]);
 
@@ -146,13 +146,16 @@ function App() { // 챗봇 화면 만드는 컴포넌트
 
         <header className="chat-header">
           <div>
-            <h1>Likelion CAU Chatbot 🦁</h1>
-            <p>week27 AI API 실습</p>
+            <h1 className = "chat-title">
+              <img src = "/images/leaf.png" alt = "" className = "leaf-icon"/>
+              Likelion 무인도 안내소🦁
+            </h1>
+            <p>무엇이 궁금하신가요?</p>
           </div>
 
           <div className="status">
             <span />
-            Online
+            안내소 운영 중
           </div>
         </header>
 
@@ -168,7 +171,7 @@ function App() { // 챗봇 화면 만드는 컴포넌트
             >
               {message.role === "assistant" && (
                 <div className="avatar">
-                  멋사AI
+                  <img src = "/images/nugul.webp" alt = "너굴" />
                 </div>
               )}
 
@@ -187,7 +190,7 @@ function App() { // 챗봇 화면 만드는 컴포넌트
           {loading && (
             <div className="message-row assistant-row">
               <div className="avatar">
-                멋사AI
+                🦝
               </div>
 
               <div className="message assistant-message loading-message">
@@ -206,7 +209,7 @@ function App() { // 챗봇 화면 만드는 컴포넌트
               setInput(e.target.value)
             }
             onKeyDown={handleKeyDown}
-            placeholder="메시지를 입력하세요..."
+            placeholder="너굴이에게 말을 걸어보세요..."
             rows={1}
           />
 
@@ -214,7 +217,7 @@ function App() { // 챗봇 화면 만드는 컴포넌트
             onClick={sendMessage}
             disabled={!input.trim() || loading}
           >
-            {loading ? "전송 중..." : "보내기"}
+            {loading ? "전송 중..." : "말 걸기"}
           </button>
         </div>
       </div>
