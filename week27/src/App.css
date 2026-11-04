@@ -1,0 +1,305 @@
+/* 섬 사진을 화면 전체 배경으로 표시 */
+.app {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+  background:
+    linear-gradient(rgba(231, 242, 223, 0.25), rgba(231, 242, 223, 0.25)),
+    url("/images/bg.jpg") center / cover no-repeat;
+}
+
+/* 채팅창 */
+.chat-container {
+  width: 100%;
+  max-width: 720px;
+  height: min(760px, calc(100dvh - 64px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #fffcf0;
+  border: 3px solid #fff8df;
+  border-radius: 30px;
+  box-shadow: 0 16px 48px rgba(49, 72, 39, 0.25);
+}
+
+.chat-header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px;
+  background: #e3edcd;
+  border-bottom: 2px dashed #becda4;
+}
+
+.chat-header > div:first-child {
+  min-width: 0;
+}
+
+.chat-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: #426647;
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+.leaf-icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.chat-header p {
+  margin: 6px 0 0;
+  color: #6e7c5a;
+  font-size: 13px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  color: #526b49;
+  font-size: 12px;
+}
+
+.status span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #78a86b;
+}
+
+/* 대화가 길어지면 채팅 영역 안에서 스크롤 */
+.chat-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 28px 24px;
+  scrollbar-width: thin;
+  scrollbar-color: #bacba4 #fffcf0;
+}
+
+.message-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.user-row {
+  justify-content: flex-end;
+}
+
+.assistant-row {
+  justify-content: flex-start;
+}
+
+/* 너굴 이미지를 둥근 아바타 안에 표시 */
+.avatar {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #efe1bd;
+  border: 2px solid #dfcfa5;
+  border-radius: 50%;
+}
+
+.avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 사용자와 AI 말풍선 */
+.message {
+  max-width: 75%;
+  padding: 14px 18px;
+  border-radius: 22px;
+  color: #5b5145;
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: left;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.user-message {
+  background: #dcecc8;
+  border-bottom-right-radius: 6px;
+}
+
+.assistant-message {
+  background: #f2ebd8;
+  border-bottom-left-radius: 6px;
+}
+
+/* 입력창과 전송 버튼 */
+.chat-input-area {
+  flex-shrink: 0;
+  display: flex;
+  gap: 10px;
+  padding: 18px;
+  background: #f6f1df;
+  border-top: 2px dashed #ded5b8;
+}
+
+.chat-input-area textarea {
+  flex: 1;
+  min-width: 0;
+  height: 52px;
+  resize: none;
+  padding: 14px 16px;
+  color: #5b5145;
+  background: #fffdf5;
+  border: 2px solid #d8dfbf;
+  border-radius: 18px;
+  outline: none;
+}
+
+.chat-input-area textarea::placeholder {
+  color: #92977e;
+}
+
+.chat-input-area textarea:focus {
+  border-color: #78a86b;
+  box-shadow: 0 0 0 3px rgba(120, 168, 107, 0.15);
+}
+
+.chat-input-area button {
+  width: 90px;
+  flex-shrink: 0;
+  color: #fffdf5;
+  background: #648a55;
+  border: none;
+  border-radius: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.chat-input-area button:hover:not(:disabled) {
+  background: #527546;
+  transform: translateY(-2px);
+}
+
+.chat-input-area button:focus-visible {
+  outline: 3px solid #426647;
+  outline-offset: 3px;
+}
+
+.chat-input-area button:disabled {
+  background: #c4cbb6;
+  cursor: not-allowed;
+}
+
+/* 답변을 기다리는 동안 점 세 개 표시 */
+.loading-message {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 48px;
+}
+
+.loading-message span {
+  width: 7px;
+  height: 7px;
+  background: #8a9c70;
+  border-radius: 50%;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+.loading-message span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.loading-message span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes bounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+
+  30% {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 600px) {
+  .app {
+    padding: 12px;
+  }
+
+  .chat-container {
+    height: calc(100dvh - 24px);
+    border-radius: 24px;
+  }
+
+  .chat-header {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 18px 16px;
+  }
+
+  .chat-title {
+    font-size: 18px;
+  }
+
+  .chat-body {
+    padding: 20px 14px;
+  }
+
+  .message {
+    max-width: 78%;
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .avatar {
+    width: 38px;
+    height: 38px;
+  }
+
+  .chat-input-area {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .chat-input-area textarea {
+    padding: 14px 10px;
+    font-size: 14px;
+  }
+
+  .chat-input-area button {
+    width: 72px;
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-message span {
+    animation: none;
+  }
+
+  .chat-input-area button {
+    transition: none;
+  }
+}
