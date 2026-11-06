@@ -59,7 +59,7 @@ export default async function AlbumPage({
             {album.genre} · {album.year}
           </div>
           {/* 과제: 앨범 제목을 div 대신 알맞은 시맨틱 태그로 바꾸기 */}
-          <div className="detail-title">{album.title}</div>
+          <h1 className = "detail-title">{album.title}</h1>
           <div className="detail-artist">{album.artist}</div>
           <p className="detail-desc">{album.description}</p>
 
