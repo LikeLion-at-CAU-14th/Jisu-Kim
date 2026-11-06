@@ -24,6 +24,16 @@ export async function generateMetadata({
   return {
     title : `${album.title} - ${album.artist}`,
     description : album.description,
+    openGraph : {
+      title : `${album.title} - ${album.artist}`,
+      description : album.description,
+      images : [
+        {
+          url : album.cover,
+          alt : `${album.artist} - ${album.title} 앨범 표지`,
+        },
+      ],
+    },
   };
 }
 
