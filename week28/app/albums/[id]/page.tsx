@@ -2,12 +2,30 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAlbum } from "@/data/albums";
 import Image from "next/image";
+import { Metadata } from "next";
 
 // 과제: generateMetadata로 앨범마다 title, description 다르게 넣기
 
 // 과제: generateMetadata에 openGraph 추가해서 앨범 표지가 링크 미리보기에 뜨게 하기
 
 // 도전 과제: generateStaticParams로 상세 페이지를 빌드할 때 미리 만들어두기
+export async function generateMetadata({
+  params,
+}: {
+  params : Promise<{id : string}>;
+}): Promise<Metadata> {
+  const {id} = await params;
+  const album = getAlbum(id);
+
+  if (!album){
+    notFound();
+  }
+
+  return {
+    title : `${album.title} - ${album.artist}`,
+    description : album.description,
+  };
+}
 
 export default async function AlbumPage({
   params,
