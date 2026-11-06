@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getAlbum } from "@/data/albums";
+import { albums, getAlbum } from "@/data/albums";
 import Image from "next/image";
 import { Metadata } from "next";
 
@@ -35,6 +35,12 @@ export async function generateMetadata({
       ],
     },
   };
+}
+
+export function generateStaticParams() {
+  return albums.map((album) => ({
+    id : album.id,
+  }));
 }
 
 export default async function AlbumPage({
